@@ -1,0 +1,9 @@
+- flash.each do |key, value|
+  - if key != 'html_safe'
+    = content_tag :div, class: "alert #{bootstrap_class_for(key)} fade in", role: "alert"
+      button type="button" class="close" data-dismiss="alert"
+        span aria-hidden="true"
+          | &times;
+        span class="sr-only"
+          | Close
+      = flash[:html_safe] ? raw(value) : value

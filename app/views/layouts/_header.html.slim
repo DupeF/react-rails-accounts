@@ -1,0 +1,19 @@
+.navbar
+  = link_to root_path, class: 'logo' do
+    span
+      = image_tag('tirelire_no_background.png', alt: 'Accounts', height: '50')
+      | Accounts
+
+  .profile-container.pull-right
+    - if user_signed_in?
+      /- if current_user.profile_picture.present?
+      /  .mini-profile-picture style="background-image:url('#{current_user.profile_picture.thumb}')"
+      /    img src="#{current_user.profile_picture.thumb}"
+      /- else
+      ul.list-inline
+        /li.profile-picture-circle
+        /  i.icon
+        li = "Welcome #{current_user.email}"
+        li = link_to 'Sign Out', destroy_user_session_path, method: :delete
+    - else
+      = link_to 'Sign Up', new_user_registration_path
