@@ -3,6 +3,7 @@
     title: ''
     date: ''
     amount: ''
+    group_id: @props.group_id
   render: ->
     React.DOM.form
       className: 'form-inline'
