@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151014122348) do
+ActiveRecord::Schema.define(version: 20151014163414) do
 
   create_table "group_memberships", force: :cascade do |t|
     t.integer  "user_id"
@@ -30,6 +30,17 @@ ActiveRecord::Schema.define(version: 20151014122348) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "record_involvements", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "record_id"
+    t.float    "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "record_involvements", ["record_id"], name: "index_record_involvements_on_record_id"
+  add_index "record_involvements", ["user_id"], name: "index_record_involvements_on_user_id"
+
   create_table "records", force: :cascade do |t|
     t.string   "title"
     t.date     "date"
@@ -37,9 +48,11 @@ ActiveRecord::Schema.define(version: 20151014122348) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "group_id"
+    t.integer  "payer_id"
   end
 
   add_index "records", ["group_id"], name: "index_records_on_group_id"
+  add_index "records", ["payer_id"], name: "index_records_on_payer_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
