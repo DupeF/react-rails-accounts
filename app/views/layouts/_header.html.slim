@@ -6,10 +6,6 @@
 
   .profile-container.pull-right
     - if user_signed_in?
-      /- if current_user.profile_picture.present?
-      /  .mini-profile-picture style="background-image:url('#{current_user.profile_picture.thumb}')"
-      /    img src="#{current_user.profile_picture.thumb}"
-      /- else
       ul.list-inline
         li = image_tag current_user.gravatar_url(size: 50)
         li = "Welcome #{current_user.email}"
