@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151014163414) do
+ActiveRecord::Schema.define(version: 20151015164937) do
 
   create_table "group_memberships", force: :cascade do |t|
     t.integer  "user_id"
@@ -29,6 +29,25 @@ ActiveRecord::Schema.define(version: 20151014163414) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "personal_balances", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "personal_balances", ["user_id"], name: "index_personal_balances_on_user_id"
+
+  create_table "personal_records", force: :cascade do |t|
+    t.integer  "personal_balance_id"
+    t.string   "title"
+    t.date     "date"
+    t.float    "amount"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "personal_records", ["personal_balance_id"], name: "index_personal_records_on_personal_balance_id"
 
   create_table "record_involvements", force: :cascade do |t|
     t.integer  "user_id"
