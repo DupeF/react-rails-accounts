@@ -12,6 +12,7 @@
         className: 'form-group'
         React.DOM.input
           type: 'text'
+          id: 'pers-rec-form-date'
           className: 'form-control'
           'data-provide': 'datepicker'
           placeholder: 'Date'
@@ -41,6 +42,10 @@
         className:  'btn btn-primary'
         disabled: !@valid()
         'Create Record'
+  componentDidMount: () ->
+    $('#pers-rec-form-date').on("changeDate", ((e) ->
+      @handleChange(e)
+    ).bind(this))
   handleChange: (e) ->
     name = e.target.name
     @setState "#{ name }": e.target.value
