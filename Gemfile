@@ -17,6 +17,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'slim', '~> 3.0.6'
 
 gem 'devise', '~> 3.5.1'
+gem 'pundit', '~> 1.0.1'
 gem 'gravtastic', '~> 3.2.6'
 
 gem 'bootstrap-datepicker-rails', '~> 1.4.0'

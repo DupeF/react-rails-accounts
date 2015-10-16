@@ -2,6 +2,7 @@ class PersonalRecordsController < ApplicationController
 
   def create
     @record = PersonalRecord.new(personal_record_params)
+    authorize @record
     if @record.save
       render json: @record
     else
@@ -11,6 +12,7 @@ class PersonalRecordsController < ApplicationController
 
   def update
     @record = PersonalRecord.find(params[:id])
+    authorize @record
     if @record.update(personal_record_params)
       render json: @record
     else
@@ -20,6 +22,7 @@ class PersonalRecordsController < ApplicationController
 
   def destroy
     @record = PersonalRecord.find(params[:id])
+    authorize @record
     @record.destroy
     head :no_content
   end

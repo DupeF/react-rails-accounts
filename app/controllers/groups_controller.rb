@@ -1,12 +1,12 @@
 class GroupsController < ApplicationController
 
   def index
-    @groups = current_user.groups
+    @groups = policy_scope Group
   end
 
   def show
     @group = Group.find(params[:id])
-    @records = @group.records
+    authorize @group
   end
 
 end

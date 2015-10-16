@@ -1,7 +1,8 @@
 class PersonalBalancesController < ApplicationController
 
   def show
-    @balance = current_user.personal_balance
+    @balance = policy_scope PersonalBalance
+    skip_authorization
   end
 
 end

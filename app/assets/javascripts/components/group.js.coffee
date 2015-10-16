@@ -1,22 +1,20 @@
 @Group = React.createClass
   getInitialState: ->
-    group: @props.data.group
-    records: @props.data.records
+    records: @props.records
   getDefaultProps: ->
-    group: null
     records: []
   render: ->
     React.DOM.div
       className: 'records'
       React.DOM.h2
         className: 'title'
-        @state.group.name
+        @props.group.name
       React.DOM.div
         className: 'row'
         React.createElement AmountBox, type: 'success', amount: @credits(), text: 'Credit'
         React.createElement AmountBox, type: 'danger', amount: @debits(), text: 'Debit'
         React.createElement AmountBox, type: 'info', amount: @balance(), text: 'Balance'
-      React.createElement RecordForm, group_id: @state.group.id, handleNewRecord: @addRecord
+      React.createElement RecordForm, group_id: @props.group.id, handleNewRecord: @addRecord
       React.DOM.hr null
       React.DOM.table
         className: 'table table-bordered'
