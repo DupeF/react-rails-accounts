@@ -13,6 +13,7 @@
         React.DOM.input
           type: 'text'
           className: 'form-control'
+          'data-provide': 'datepicker'
           placeholder: 'Date'
           name: 'date'
           value: @state.date

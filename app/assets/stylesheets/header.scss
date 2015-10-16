@@ -1,0 +1,31 @@
+.navbar {
+
+  background-color: #E9F0F2;
+  border-color: #767EF5;
+  border-width: 0px;
+  border-bottom-width: 1px;
+  border-radius: 0px;
+  padding: 10px;
+  padding-left: 25px;
+  padding-right: 25px;
+
+  ul {
+    margin: 0px;
+  }
+
+  .sign_up_link {
+    padding: 10px;
+  }
+
+  .logo {
+    img {
+      padding-right: 10px;
+    }
+    font-size: 24px;
+    color: #730E15;
+  }
+
+  .logo:hover {
+    text-decoration: none;
+  }
+}

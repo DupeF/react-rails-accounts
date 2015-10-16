@@ -11,7 +11,7 @@
       @recordRow()
   recordRow: ->
     React.DOM.tr null,
-      React.DOM.td null, @props.record.date
+      React.DOM.td null, dateFormat(@props.record.date)
       React.DOM.td null, @props.record.title
       React.DOM.td null, amountFormat(@props.record.amount)
       React.DOM.td null,
@@ -29,7 +29,8 @@
         React.DOM.input
           className: 'form-control'
           type: 'text'
-          defaultValue: @props.record.date
+          'data-provide': 'datepicker'
+          defaultValue: dateFormat(@props.record.date)
           ref: 'date'
       React.DOM.td null,
         React.DOM.input
