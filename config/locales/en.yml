@@ -23,3 +23,4 @@ en:
     welcome: Welcome %{name}
   locales:
     error: Something wrong happened.
+  unauthorized: You are not authorized to perform this action.
