@@ -8,7 +8,7 @@
       className: 'groups'
       React.DOM.h2
         className: 'title'
-        'Groups'
+        I18n.t('components.groups.title')
       React.DOM.ul
         className: 'list-unstyled'
         for group in @state.groups

@@ -1,0 +1,23 @@
+fr:
+  components:
+    actions: Actions
+    amount: Montant
+    cancel: Annuler
+    date: Date
+    delete: Supprimer
+    edit: Editer
+    update: Enregistrer
+    title: Titre
+    amount_box:
+      balance: Bilan
+      credit: Crédit
+      debit: Débit
+    groups:
+      title: Groupes
+    personal_balance:
+      title: Bilan Personnel
+    record_form:
+      create: Enregistrer
+  header:
+    sign_out: Déconnexion
+    welcome: Bienvenue %{name}

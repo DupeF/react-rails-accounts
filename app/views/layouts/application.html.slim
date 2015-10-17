@@ -14,3 +14,7 @@ html
       .container.main-container
         = render 'layouts/flashes'
         = yield
+
+javascript:
+  I18n.defaultLocale = "#{{I18n.default_locale.to_s}}";
+  I18n.locale = "#{{I18n.locale.to_s}}";

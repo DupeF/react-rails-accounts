@@ -18,11 +18,11 @@
         React.DOM.a
           className: 'btn btn-default'
           onClick: @handleToggle
-          'Edit'
+          I18n.t('components.edit')
         React.DOM.a
           className: 'btn btn-danger'
           onClick: @handleDelete
-          'Delete'
+          I18n.t('components.delete')
   recordForm: ->
     React.DOM.tr null,
       React.DOM.td null,
@@ -48,11 +48,11 @@
         React.DOM.a
           className: 'btn btn-default'
           onClick: @handleEdit
-          'Update'
+          I18n.t('components.update')
         React.DOM.a
           className: 'btn btn-danger'
           onClick: @handleToggle
-          'Cancel'
+          I18n.t('components.cancel')
   handleEdit: (e) ->
     e.preventDefault()
     data = 

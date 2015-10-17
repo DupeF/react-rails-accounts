@@ -15,7 +15,7 @@
           id: 'rec-form-date'
           className: 'form-control'
           'data-provide': 'datepicker'
-          placeholder: 'Date'
+          placeholder: I18n.t('components.date')
           name: 'date'
           value: @state.date
           onChange: @handleChange
@@ -24,7 +24,7 @@
         React.DOM.input
           type: 'text'
           className: 'form-control'
-          placeholder: 'Title'
+          placeholder: I18n.t('components.title')
           name: 'title'
           value: @state.title
           onChange: @handleChange
@@ -33,7 +33,7 @@
         React.DOM.input
           type: 'number'
           className: 'form-control'
-          placeholder: 'Amount'
+          placeholder: I18n.t('components.amount')
           name: 'amount'
           value: @state.amount
           onChange: @handleChange
@@ -41,7 +41,7 @@
         type: 'submit'
         className:  'btn btn-primary'
         disabled: !@valid()
-        'Create Record'
+        I18n.t('components.record_form.create')
   componentDidMount: () ->
     $('#rec-form-date').on("changeDate", ((e) ->
       @handleChange(e)

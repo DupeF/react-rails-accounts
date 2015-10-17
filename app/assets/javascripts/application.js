@@ -17,6 +17,8 @@
 //= require bootstrap-datepicker
 //= require react
 //= require react_ujs
+//= require i18n
+//= require i18n/translations
 
 //= require_tree ./initializers
 //= require_tree ./components

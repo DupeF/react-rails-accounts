@@ -16,7 +16,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'slim', '~> 3.0.6'
 
+gem 'i18n-js', '~> 2.1.2'
 gem 'devise', '~> 3.5.1'
+gem 'devise-i18n', '~> 0.12.1'
+gem 'devise-i18n-views', '~> 0.3.6'
 gem 'pundit', '~> 1.0.1'
 gem 'gravtastic', '~> 3.2.6'
 

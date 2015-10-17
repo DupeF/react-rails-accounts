@@ -11,19 +11,19 @@
         @props.group.name
       React.DOM.div
         className: 'row'
-        React.createElement AmountBox, type: 'success', amount: @credits(), text: 'Credit'
-        React.createElement AmountBox, type: 'danger', amount: @debits(), text: 'Debit'
-        React.createElement AmountBox, type: 'info', amount: @balance(), text: 'Balance'
+        React.createElement AmountBox, type: 'success', amount: @credits(), text: I18n.t('components.amount_box.credit')
+        React.createElement AmountBox, type: 'danger', amount: @debits(), text: I18n.t('components.amount_box.debit')
+        React.createElement AmountBox, type: 'info', amount: @balance(), text: I18n.t('components.amount_box.balance')
       React.createElement RecordForm, group_id: @props.group.id, handleNewRecord: @addRecord
       React.DOM.hr null
       React.DOM.table
         className: 'table table-bordered'
         React.DOM.thead null,
           React.DOM.tr null,
-            React.DOM.th null, 'Date'
-            React.DOM.th null, 'Title'
-            React.DOM.th null, 'Amount'
-            React.DOM.th null, 'Actions'
+            React.DOM.th null, I18n.t('components.date')
+            React.DOM.th null, I18n.t('components.title')
+            React.DOM.th null, I18n.t('components.amount')
+            React.DOM.th null, I18n.t('components.actions')
         React.DOM.tbody null,
           for record in @state.records
             React.createElement Record, key: record.id, record: record, handleEditRecord: @updateRecord, handleDeleteRecord: @deleteRecord
