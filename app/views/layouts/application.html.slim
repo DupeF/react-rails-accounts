@@ -18,3 +18,4 @@ html
 javascript:
   I18n.defaultLocale = "#{{I18n.default_locale.to_s}}";
   I18n.locale = "#{{I18n.locale.to_s}}";
+  $.fn.datepicker.defaults.language = "#{{(I18n.locale || I18n.default_locale).to_s}}";
