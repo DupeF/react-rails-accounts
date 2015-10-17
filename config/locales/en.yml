@@ -21,3 +21,5 @@ en:
   header:
     sign_out: Sign Out
     welcome: Welcome %{name}
+  locales:
+    error: Something wrong happened.

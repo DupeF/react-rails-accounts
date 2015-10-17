@@ -21,3 +21,5 @@ fr:
   header:
     sign_out: Déconnexion
     welcome: Bienvenue %{name}
+  locales:
+    error: Une erreur est survenue.

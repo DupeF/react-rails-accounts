@@ -9,7 +9,12 @@
       ul.list-inline
         li = image_tag current_user.gravatar_url(size: 50)
         li = t('header.welcome', name: current_user.email)
+        - unused_locales.each do |locale|
+          li = link_to locale.to_s.capitalize, locale_path(locale: locale), method: :put
         li = link_to t('header.sign_out'), destroy_user_session_path, method: :delete
     - else
       .sign_up_link
-        = link_to t('devise.shared.links.sign_up'), new_user_registration_path
+        ul.list-inline
+          - unused_locales.each do |locale|
+            li = link_to locale.to_s.capitalize, locale_path(locale: locale), method: :put
+          li = link_to t('devise.shared.links.sign_up'), new_user_registration_path
