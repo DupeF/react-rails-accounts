@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
     I18n.locale = (current_user && current_user.locale) ||
         cookies[:locale] ||
         I18n.default_locale
+    cookies[:locale] = I18n.locale
   end
 
   def user_not_authorized
