@@ -53,7 +53,7 @@
     @state.title && @state.date && @state.amount
   handleSubmit: (e) ->
     e.preventDefault()
-    $.post '/personal_records', { personal_record: @state }, (data) =>
-      @props.handleNewRecord data
+    $.post '/personal_records', { personal_record: @state }, () =>
+      @props.handleNewRecord()
       @setState @getInitialState()
     , 'JSON'
