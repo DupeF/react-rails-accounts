@@ -36,7 +36,7 @@
           React.DOM.span
             className: 'input-group-btn'
             React.DOM.button
-              className: 'btn btn-default'
+              className: @btnClassName()
               type: 'button'
               onClick: @toggleMinus
               @state.amount_sign
@@ -59,6 +59,12 @@
   handleChange: (e) ->
     name = e.target.name
     @setState "#{ name }": e.target.value
+  btnClassName: () ->
+    color_class = switch @state.amount_sign
+      when '-' then 'btn-danger'
+      when '+' then 'btn-success'
+      else 'btn-default'
+    'plus-minus-btn btn '+color_class
   toggleMinus: () ->
     amount_sign = if (@state.amount_sign == '-') then '+' else '-'
     @setState amount_sign: amount_sign
