@@ -79,7 +79,7 @@
       date: @state.date
       amount: @state.amount_sign+@state.amount
       personal_balance_id: @state.personal_balance_id
-    $.post '/personal_records', { personal_record: personal_record }, () =>
-      @props.handleNewRecord()
+    $.post '/personal_records', { personal_record: personal_record }, (data) =>
+      @props.handleNewRecord data
       @setState @getInitialState()
     , 'JSON'

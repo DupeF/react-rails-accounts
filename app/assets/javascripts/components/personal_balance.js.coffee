@@ -22,7 +22,7 @@
         React.createElement AmountBox, type: 'success', page_amount: @page_credits(), total_amount: @state.total_credits, text: I18n.t('components.amount_box.credit')
         React.createElement AmountBox, type: 'danger', page_amount: @page_debits(), total_amount: @state.total_debits, text: I18n.t('components.amount_box.debit')
         React.createElement AmountBox, type: 'info', page_amount: @page_balance(), total_amount: @total_balance(), text: I18n.t('components.amount_box.balance')
-      React.createElement PersonalRecordForm, balance_id: @props.balance_id, handleNewRecord: @reloadRecords
+      React.createElement PersonalRecordForm, balance_id: @props.balance_id, handleNewRecord: @createRecord
       React.DOM.hr null
       React.DOM.table
         className: 'table table-bordered'
@@ -34,7 +34,7 @@
             React.DOM.th null, I18n.t('components.actions')
         React.DOM.tbody null,
           for record in @state.records
-            React.createElement PersonalRecord, key: record.id, record: record, handleEditRecord: @reloadRecords, handleDeleteRecord: @reloadRecords
+            React.createElement PersonalRecord, key: record.id, record: record, handleEditRecord: @updateRecord, handleDeleteRecord: @destroyRecord
       React.createElement ReactPaginate, max: @state.total_pages, maxVisible: @state.total_pages, onChange: @reloadRecords
   page_credits: ->
     credits = @state.records.filter (val) -> val.amount >= 0
@@ -50,6 +50,16 @@
     @page_debits() + @page_credits()
   total_balance: ->
     @state.total_credits + @state.total_debits
+  createRecord: (record) ->
+    @addToTotals record.amount
+    @reloadRecords()
+  updateRecord: (new_record, old_record) ->
+    @removeFromTotals old_record.amount
+    @addToTotals new_record.amount
+    @reloadRecords()
+  destroyRecord: (record) ->
+    @removeFromTotals record.amount
+    @reloadRecords()
   reloadRecords: (page) ->
     if page == undefined
       page = @state.page
@@ -57,3 +67,13 @@
       records = React.addons.update @state.records, {$set: data.records}
       @setState page: page, records: records, total_pages: data.total_pages
     , 'JSON'
+  addToTotals: (amount) ->
+    if amount >= 0
+      @setState total_credits: (@state.total_credits+amount)
+    else
+      @setState total_debits: (@state.total_debits+amount)
+  removeFromTotals: (amount) ->
+    if amount >= 0
+      @setState total_credits: (@state.total_credits-amount)
+    else
+      @setState total_debits: (@state.total_debits-amount)

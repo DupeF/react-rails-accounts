@@ -65,14 +65,14 @@
       dataType: 'JSON'
       data:
         personal_record: data
-      success: () =>
+      success: (data) =>
         @setState edit: false
-        @props.handleEditRecord()
+        @props.handleEditRecord data, @props.record
   handleDelete: (e) ->
     e.preventDefault()
     $.ajax
       method: 'DELETE'
       url: "/personal_records/#{ @props.record.id }"
       dataType: 'JSON'
-      success: () =>
-        @props.handleDeleteRecord()
+      success: (data) =>
+        @props.handleDeleteRecord data
