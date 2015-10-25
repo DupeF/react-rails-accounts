@@ -12,6 +12,8 @@ fr:
       balance: Bilan
       credit: Crédit
       debit: Débit
+      this_page: 'Sur cette page : %{amount}'
+      total: 'Total : %{amount}'
     groups:
       title: Groupes
     personal_balance:

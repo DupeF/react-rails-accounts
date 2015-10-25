@@ -24,7 +24,7 @@ class PersonalRecordsController < ApplicationController
     @record = PersonalRecord.find(params[:id])
     authorize @record
     @record.destroy
-    head :no_content
+    render json: @record
   end
 
   private

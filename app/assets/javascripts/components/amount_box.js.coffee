@@ -9,4 +9,9 @@
           @props.text
         React.DOM.div
           className: 'panel-body'
-          amountFormat(@props.amount)
+          React.DOM.ul
+            className: 'list list-unstyled'
+            React.DOM.li null,
+              I18n.t('components.amount_box.this_page', amount: amountFormat(@props.page_amount))
+            React.DOM.li null,
+              I18n.t('components.amount_box.total', amount: amountFormat(@props.total_amount))
