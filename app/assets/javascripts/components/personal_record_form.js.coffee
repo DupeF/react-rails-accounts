@@ -7,7 +7,7 @@
     personal_balance_id: @props.balance_id
   render: ->
     React.DOM.form
-      className: 'form-inline'
+      className: 'form-inline record-form'
       onSubmit: @handleSubmit
       React.DOM.div
         className: 'form-group'

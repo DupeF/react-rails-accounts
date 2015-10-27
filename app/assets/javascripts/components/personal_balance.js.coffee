@@ -28,10 +28,18 @@
         className: 'table table-bordered'
         React.DOM.thead null,
           React.DOM.tr null,
-            React.DOM.th null, I18n.t('components.date')
-            React.DOM.th null, I18n.t('components.title')
-            React.DOM.th null, I18n.t('components.amount')
-            React.DOM.th null, I18n.t('components.actions')
+            React.DOM.th
+              className: 'col-md-3'
+              I18n.t('components.date')
+            React.DOM.th
+              className: 'col-md-3'
+              I18n.t('components.title')
+            React.DOM.th
+              className: 'col-md-3'
+              I18n.t('components.amount')
+            React.DOM.th
+              className: 'col-md-3'
+              I18n.t('components.actions')
         React.DOM.tbody null,
           for record in @state.records
             React.createElement PersonalRecord, key: record.id, record: record, handleEditRecord: @updateRecord, handleDeleteRecord: @destroyRecord
