@@ -19,9 +19,16 @@
         I18n.t('components.personal_balance.title')
       React.DOM.div
         className: 'row'
-        React.createElement AmountBox, type: 'success', page_amount: @page_credits(), total_amount: @state.total_credits, text: I18n.t('components.amount_box.credit')
-        React.createElement AmountBox, type: 'danger', page_amount: @page_debits(), total_amount: @state.total_debits, text: I18n.t('components.amount_box.debit')
-        React.createElement AmountBox, type: 'info', page_amount: @page_balance(), total_amount: @total_balance(), text: I18n.t('components.amount_box.balance')
+        React.DOM.div
+          className: 'col-md-8'
+          React.DOM.div
+            className: 'row'
+            React.createElement AmountBox, type: 'success', page_amount: @page_credits(), total_amount: @state.total_credits, text: I18n.t('components.amount_box.credit')
+            React.createElement AmountBox, type: 'danger', page_amount: @page_debits(), total_amount: @state.total_debits, text: I18n.t('components.amount_box.debit')
+            React.createElement AmountBox, type: 'info', page_amount: @page_balance(), total_amount: @total_balance(), text: I18n.t('components.amount_box.balance')
+        React.DOM.div
+          className: 'col-md-4'
+          React.createElement ChartComponent, name: 'balance'
       React.createElement PersonalRecordForm, balance_id: @props.balance_id, handleNewRecord: @createRecord
       React.DOM.hr null
       React.DOM.table

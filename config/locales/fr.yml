@@ -20,6 +20,10 @@ fr:
       title: Bilan Personnel
     record_form:
       create: Enregistrer
+  date:
+    formats:
+      default: '%d/%m/%Y'
+      small: '%d/%m'
   header:
     sign_out: Déconnexion
     welcome: Bienvenue %{name}

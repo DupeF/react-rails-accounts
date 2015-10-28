@@ -19,6 +19,7 @@
 //= require react_ujs
 //= require i18n
 //= require i18n/translations
+//= require chartjs
 //= require react-paginate
 
 //= require_tree ./initializers

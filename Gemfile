@@ -2,6 +2,7 @@ ruby '2.2.3'
 
 source 'https://rubygems.org' do
   gem 'rails', '4.2.2'
+  gem 'pg', '~> 0.18.3'
 
   gem 'sass-rails', '~> 5.0'
   gem 'uglifier', '>= 1.3.0'
@@ -27,18 +28,17 @@ source 'https://rubygems.org' do
   gem 'bootstrap-datepicker-rails', '~> 1.4.0'
 
   group :development, :test do
-    gem 'sqlite3'
     gem 'web-console', '~> 2.0'
     gem 'better_errors', '~> 2.1.1'
     gem 'spring'
   end
 
   group :production do
-    gem 'pg', '~> 0.18.3'
     gem 'rails_12factor', '~> 0.0.3'
   end
 end
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-react-paginate'
+  gem 'rails-assets-chartjs', '~> 1.0.2'
 end

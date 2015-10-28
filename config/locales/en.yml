@@ -20,6 +20,10 @@ en:
       title: Personal Balance
     record_form:
       create: Save
+  date:
+    formats:
+      default: '%Y/%m/%d'
+      small: '%m/%d'
   header:
     sign_out: Sign Out
     welcome: Welcome %{name}
