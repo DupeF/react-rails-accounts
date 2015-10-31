@@ -1,6 +1,6 @@
 class PersonalRecordPolicy < ApplicationPolicy
   def create?
-    record.personal_balance_id == user.personal_balance.id
+    user.personal_balances.include? record.personal_balance
   end
 
   def update?
