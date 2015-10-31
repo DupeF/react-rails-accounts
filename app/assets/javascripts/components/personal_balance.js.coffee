@@ -6,6 +6,7 @@
     total_credits: @props.total_credits
     total_debits: @props.total_debits
   getDefaultProps: ->
+    balance: {}
     page: 1
     records: []
     total_pages: 1
@@ -16,7 +17,7 @@
       className: 'records'
       React.DOM.h2
         className: 'title'
-        I18n.t('components.personal_balance.title')
+        @props.balance.name
       React.DOM.div
         className: 'row'
         React.createElement AmountBox, type: 'success', page_amount: @page_credits(), total_amount: @state.total_credits, text: I18n.t('components.amount_box.credit')
