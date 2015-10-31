@@ -5,6 +5,13 @@
     total_pages: @props.total_pages
     total_credits: @props.total_credits
     total_debits: @props.total_debits
+    charts: {
+      balance: {
+        data: []
+        type: ''
+        options: {}
+      }
+    }
   getDefaultProps: ->
     page: 1
     records: []
@@ -28,7 +35,7 @@
             React.createElement AmountBox, type: 'info', page_amount: @page_balance(), total_amount: @total_balance(), text: I18n.t('components.amount_box.balance')
         React.DOM.div
           className: 'col-md-4'
-          React.createElement ChartComponent, name: 'balance'
+          React.createElement ChartComponent, @state.charts.balance
       React.createElement PersonalRecordForm, balance_id: @props.balance_id, handleNewRecord: @createRecord
       React.DOM.hr null
       React.DOM.table
@@ -51,6 +58,8 @@
           for record in @state.records
             React.createElement PersonalRecord, key: record.id, record: record, handleEditRecord: @updateRecord, handleDeleteRecord: @destroyRecord
       React.createElement ReactPaginate, max: @state.total_pages, maxVisible: @state.total_pages, onChange: @reloadRecords
+  componentDidMount: ->
+    @reloadCharts()
   page_credits: ->
     credits = @state.records.filter (val) -> val.amount >= 0
     credits.reduce ((prev, curr) ->
@@ -68,13 +77,16 @@
   createRecord: (record) ->
     @addToTotals record.amount
     @reloadRecords()
+    @reloadCharts()
   updateRecord: (new_record, old_record) ->
     @removeFromTotals old_record.amount
     @addToTotals new_record.amount
     @reloadRecords()
+    @reloadCharts()
   destroyRecord: (record) ->
     @removeFromTotals record.amount
     @reloadRecords()
+    @reloadCharts()
   reloadRecords: (page) ->
     if page == undefined
       page = @state.page
@@ -82,6 +94,11 @@
       records = React.addons.update @state.records, {$set: data.records}
       @setState page: page, records: records, total_pages: data.total_pages
     , 'JSON'
+  reloadCharts: ->
+    $.get '/charts/balance', {}, ((data) ->
+      charts = React.addons.update @state.charts, {balance: {$merge: data}}
+      @setState charts: charts
+    ).bind(this)
   addToTotals: (amount) ->
     if amount >= 0
       @setState total_credits: (@state.total_credits+amount)

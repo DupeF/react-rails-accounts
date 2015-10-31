@@ -6,8 +6,8 @@ class ChartsController < ApplicationController
     skip_authorization
     render json:
                {
-                   chart_type: @balance_chart.chart_type,
-                   formatted_data: @balance_chart.formatted_data,
+                   type: @balance_chart.chart_type,
+                   data: @balance_chart.formatted_data,
                    options: @balance_chart.options
                }
   end
