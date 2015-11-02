@@ -9,4 +9,4 @@
         React.DOM.ul
           className: 'list list-unstyled'
           for balance in @props.balances
-            React.createElement PersonalBalancePanel, balance: balance
+            React.createElement PersonalBalancePanel, key: balance.id, balance: balance
