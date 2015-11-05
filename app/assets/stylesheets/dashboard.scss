@@ -1,0 +1,22 @@
+.dashboard-entry {
+
+  a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+  .dashboard-panel {
+
+    .dashboard-panel-body {
+      height: 150px;
+      font-size: 22px;
+    }
+
+    .dashboard-panel-title {
+      position: relative;
+      top: 40px;
+    }
+
+  }
+
+}

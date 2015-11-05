@@ -14,6 +14,11 @@ fr:
       debit: Débit
       this_page: 'Sur cette page : %{amount}'
       total: 'Total : %{amount}'
+    dashboard:
+      new_balance:
+        title: Ajouter un Bilan
+        name: Nom
+        save: Valider
     groups:
       title: Groupes
     personal_balance:

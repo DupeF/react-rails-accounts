@@ -4,7 +4,6 @@
     date: ''
     amount_sign: '-'
     amount: ''
-    personal_balance_id: @props.balance_id
   render: ->
     React.DOM.form
       className: 'form-inline record-form'
@@ -78,7 +77,7 @@
       title: @state.title
       date: @state.date
       amount: @state.amount_sign+@state.amount
-      personal_balance_id: @state.personal_balance_id
+      personal_balance_id: @props.personal_balance_id
     $.post '/personal_records', { personal_record: personal_record }, (data) =>
       @props.handleNewRecord data
       @setState @getInitialState()
