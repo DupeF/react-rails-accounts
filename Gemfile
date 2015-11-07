@@ -31,6 +31,11 @@ source 'https://rubygems.org' do
     gem 'web-console', '~> 2.0'
     gem 'better_errors', '~> 2.1.1'
     gem 'spring'
+
+    gem 'rspec-rails', '~> 3.3', '>= 3.3.3'
+    gem 'capybara', '~> 2.5'
+    gem 'factory_girl_rails', '~> 4.5'
+    gem 'poltergeist', '~> 1.7'
   end
 
   group :production do
