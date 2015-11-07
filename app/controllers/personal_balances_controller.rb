@@ -1,10 +1,21 @@
 class PersonalBalancesController < ApplicationController
 
+  def create
+    @balance = current_user.personal_balances.new personal_balance_params
+    skip_authorization
+    if @balance.save
+      render json: @balance
+    else
+      render json: @balance.errors, status: :unprocessable_entity
+    end
+
+  end
+
   def show
-    @balance = policy_scope PersonalBalance
+    @balance = PersonalBalance.find(params[:id])
+    authorize @balance
     @records = @balance.records.order(date: :desc, created_at: :desc).page(params[:page]).per(10)
     @total_pages = @records.total_pages
-    skip_authorization
     if request.xhr?
       render json: { records: @records, total_pages: @total_pages }
     else
@@ -13,4 +24,9 @@ class PersonalBalancesController < ApplicationController
     end
   end
 
+  private
+
+  def personal_balance_params
+    params.require(:personal_balance).permit(:name)
+  end
 end

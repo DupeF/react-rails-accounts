@@ -1,7 +1,7 @@
 class PersonalRecordsController < ApplicationController
 
   def create
-    @record = PersonalRecord.new(personal_record_params)
+    @record = PersonalRecord.new(create_personal_record_params)
     authorize @record
     if @record.save
       render json: @record
@@ -13,7 +13,7 @@ class PersonalRecordsController < ApplicationController
   def update
     @record = PersonalRecord.find(params[:id])
     authorize @record
-    if @record.update(personal_record_params)
+    if @record.update(update_personal_record_params)
       render json: @record
     else
       render json: @record.errors, status: :unprocessable_entity
@@ -29,8 +29,12 @@ class PersonalRecordsController < ApplicationController
 
   private
 
-  def personal_record_params
+  def create_personal_record_params
     params.require(:personal_record).permit(:title, :amount, :date, :personal_balance_id)
+  end
+
+  def update_personal_record_params
+    params.require(:personal_record).permit(:title, :amount, :date)
   end
 
 end

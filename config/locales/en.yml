@@ -14,6 +14,11 @@ en:
       debit: Debit
       this_page: 'This Page: %{amount}'
       total: 'Total: %{amount}'
+    dashboard:
+      new_balance:
+        title: Add a Balance
+        name: Name
+        save: Save
     groups:
       title: Groups
     personal_balance:
