@@ -7,6 +7,10 @@
 
   .dashboard-panel {
 
+    &:hover {
+      box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.16);
+    }
+
     .dashboard-panel-body {
       height: 150px;
       font-size: 22px;
