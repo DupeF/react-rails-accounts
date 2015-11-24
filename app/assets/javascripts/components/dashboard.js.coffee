@@ -1,8 +1,10 @@
 @Dashboard = React.createClass
   getDefaultProps: ->
     balances: []
+    groups: []
   getInitialState: ->
     balances: @props.balances
+    groups: @props.groups
   render: ->
     React.DOM.div
       className: 'row'
@@ -11,7 +13,9 @@
         React.DOM.ul
           className: 'list list-unstyled'
           for balance in @state.balances
-            React.createElement PersonalBalancePanel, key: balance.id, balance: balance
+            React.createElement PersonalBalancePanel, key: 'balance'+balance.id, balance: balance
+          for group in @state.groups
+            React.createElement GroupPanel, key: 'group'+group.id, group: group
           React.createElement NewPersonalBalancePanel, handleNewBalance: @addBalance
   addBalance: (balance) ->
     balances = React.addons.update(@state.balances, { $push: [balance] })
