@@ -1,13 +1,13 @@
 class GroupsController < ApplicationController
 
   def create
-    # @balance = current_user.personal_balances.new personal_balance_params
-    # skip_authorization
-    # if @balance.save
-    #   render json: @balance
-    # else
-    #   render json: @balance.errors, status: :unprocessable_entity
-    # end
+    @group = current_user.groups.create group_params
+    skip_authorization
+    if @group.errors
+      render json: @group
+    else
+      render json: @group.errors, status: :unprocessable_entity
+    end
   end
 
   def show
@@ -20,7 +20,7 @@ class GroupsController < ApplicationController
 
   private
 
-  # def personal_balance_params
-  #   params.require(:personal_balance).permit(:name)
-  # end
+  def group_params
+    params.require(:group).permit(:name)
+  end
 end
