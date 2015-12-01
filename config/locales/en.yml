@@ -19,12 +19,13 @@ en:
         title: Add a Balance
         name: Name
         save: Save
-    groups:
-      title: Groups
+    group:
+      new_record: New Expense
     personal_balance:
       title: Personal Balance
     record_form:
       create: Save
+      payed_by: Payed by...
   header:
     sign_out: Sign Out
     welcome: Welcome %{name}

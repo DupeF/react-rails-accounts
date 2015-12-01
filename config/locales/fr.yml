@@ -19,12 +19,13 @@ fr:
         title: Ajouter un Bilan
         name: Nom
         save: Valider
-    groups:
-      title: Groupes
+    group:
+      new_record: Nouvelle Dépense
     personal_balance:
       title: Bilan Personnel
     record_form:
       create: Enregistrer
+      payed_by: Payé par...
   header:
     sign_out: Déconnexion
     welcome: Bienvenue %{name}

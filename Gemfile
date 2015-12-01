@@ -43,4 +43,5 @@ end
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-react-paginate'
+  gem 'rails-assets-react-select'
 end

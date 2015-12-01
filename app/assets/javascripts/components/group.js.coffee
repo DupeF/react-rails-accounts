@@ -8,13 +8,22 @@
     page: 1
     records: []
     total_pages: 1
+    users: []
   render: ->
     React.DOM.div
       className: 'records'
-      React.DOM.h2
-        className: 'title'
-        @props.group.name
-      React.createElement RecordForm, group_id: @props.group.id, handleNewRecord: @createRecord
+      React.DOM.div
+        className: 'row'
+        React.DOM.h2
+          className: 'title'
+          @props.group.name
+        React.DOM.a
+          className: 'btn btn-primary pull-right'
+          href: '#newRecordModal'
+          role: 'button'
+          'data-toggle': 'modal'
+          I18n.t('components.group.new_record')
+      React.createElement RecordModal, group_id: @props.group.id, users: @props.users,handleNewRecord: @createRecord
       React.DOM.hr null
       React.DOM.table
         className: 'table table-bordered'
