@@ -5,7 +5,7 @@
     amount_sign: '-'
     amount: ''
     payer: ''
-    involved: []
+    user_ids: null
   render: ->
     React.DOM.div
       id: 'newRecordModal'
@@ -31,6 +31,8 @@
               className: 'modal-body'
               React.DOM.div
                 className: 'form-group'
+                React.DOM.label null,
+                  I18n.t('components.title')
                 React.DOM.input
                   type: 'text'
                   className: 'form-control'
@@ -44,6 +46,8 @@
                   className: 'row'
                   React.DOM.div
                     className: 'col-md-6'
+                    React.DOM.label null,
+                      I18n.t('components.date')
                     React.DOM.input
                       type: 'text'
                       id: 'rec-form-date'
@@ -55,6 +59,8 @@
                       onChange: @handleChange
                   React.DOM.div
                     className: 'col-md-6'
+                    React.DOM.label null,
+                      I18n.t('components.amount')
                     React.DOM.div
                       className: 'input-group'
                       React.DOM.span
@@ -76,15 +82,17 @@
                         onChange: @handleChange
               React.DOM.div
                 className: 'form-group'
+                React.DOM.label null,
+                  I18n.t('components.record_form.payed_by')
                 React.DOM.select
-                  className: @selectPlaceholderClassName()
+                  className: 'form-control selectpicker'
                   name: 'payer'
                   value: @state.payer
                   onChange: @handleChange
                   React.DOM.option
-                    value: ''
                     className: 'hidden'
-                    I18n.t('components.record_form.payed_by')
+                    value: ''
+                    ' '
                   for user in @props.users
                     React.DOM.option
                       key: user.id
@@ -92,17 +100,17 @@
                       user.email
               React.DOM.div
                 className: 'form-group'
-                React.createElement Select null
-
                 React.DOM.label null,
-                  'users'
-                React.DOM.br null
-                for user in @props.users
-                  React.DOM.label
-                    key: user.id
-                    className: 'checkbox-inline'
-                    React.DOM.input
-                      type: 'checkbox'
+                  I18n.t('components.record_form.payed_for')
+                React.DOM.select
+                  className: 'form-control selectpicker'
+                  name: 'user_ids'
+                  multiple: true
+                  title: ''
+                  onChange: @handleChange
+                  for user in @props.users
+                    React.DOM.option
+                      key: user.id
                       value: user.id
                       user.email
             React.DOM.div
@@ -116,14 +124,9 @@
     $('#rec-form-date').on("changeDate", ((e) ->
       @handleChange(e)
     ).bind(this))
-  selectPlaceholderClassName: () ->
-    if @state.payer == ''
-      'form-control select-placeholder'
-    else
-      'form-control'
   handleChange: (e) ->
     name = e.target.name
-    @setState "#{ name }": e.target.value
+    @setState "#{ name }": $(e.target).val()
   btnTextClassName: () ->
     switch @state.amount_sign
       when '-' then 'text-danger'
@@ -133,7 +136,7 @@
     amount_sign = if (@state.amount_sign == '-') then '+' else '-'
     @setState amount_sign: amount_sign
   valid: ->
-    @state.title && @state.date && @state.amount && @state.amount_sign && @state.payer
+    @state.title && @state.date && @state.amount && @state.amount_sign && @state.payer && @state.user_ids
   handleSubmit: (e) ->
     e.preventDefault()
     record =
@@ -141,10 +144,12 @@
       date: @state.date
       amount: @state.amount_sign+@state.amount
       payer_id: @state.payer
+      user_ids: @state.user_ids
       group_id: @props.group_id
     $.post '/records', { record: record }, (data) =>
       @props.handleNewRecord data
       @setState @getInitialState()
+      $('.selectpicker').selectpicker('val','')
       @hideModal()
     , 'JSON'
   hideModal: ->

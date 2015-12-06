@@ -25,7 +25,8 @@ en:
       title: Personal Balance
     record_form:
       create: Save
-      payed_by: Payed by...
+      payed_by: Payed by
+      payed_for: Payed for
   header:
     sign_out: Sign Out
     welcome: Welcome %{name}

@@ -25,7 +25,8 @@ fr:
       title: Bilan Personnel
     record_form:
       create: Enregistrer
-      payed_by: Payé par...
+      payed_by: Payé par
+      payed_for: Payé pour
   header:
     sign_out: Déconnexion
     welcome: Bienvenue %{name}
