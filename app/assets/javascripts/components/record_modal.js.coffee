@@ -83,7 +83,7 @@
               React.DOM.div
                 className: 'form-group'
                 React.DOM.label null,
-                  I18n.t('components.record_form.payed_by')
+                  I18n.t('components.payed_by')
                 React.DOM.select
                   className: 'form-control selectpicker'
                   name: 'payer'
@@ -101,7 +101,7 @@
               React.DOM.div
                 className: 'form-group'
                 React.DOM.label null,
-                  I18n.t('components.record_form.payed_for')
+                  I18n.t('components.payed_for')
                 React.DOM.select
                   className: 'form-control selectpicker'
                   name: 'user_ids'

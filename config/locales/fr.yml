@@ -6,6 +6,8 @@ fr:
     date: Date
     delete: Supprimer
     edit: Editer
+    payed_by: Payé par
+    payed_for: Payé pour
     update: Enregistrer
     title: Titre
     amount_box:
@@ -25,8 +27,6 @@ fr:
       title: Bilan Personnel
     record_form:
       create: Enregistrer
-      payed_by: Payé par
-      payed_for: Payé pour
   header:
     sign_out: Déconnexion
     welcome: Bienvenue %{name}

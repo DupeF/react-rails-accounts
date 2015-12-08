@@ -30,21 +30,28 @@
         React.DOM.thead null,
           React.DOM.tr null,
             React.DOM.th
-              className: 'col-md-3'
+              className: 'col-md-2'
               I18n.t('components.date')
             React.DOM.th
               className: 'col-md-3'
               I18n.t('components.title')
             React.DOM.th
-              className: 'col-md-3'
+              className: 'col-md-2'
               I18n.t('components.amount')
+            React.DOM.th
+              className: 'col-md-2'
+              I18n.t('components.payed_by')
             React.DOM.th
               className: 'col-md-3'
               I18n.t('components.actions')
         React.DOM.tbody null,
           for record in @state.records
-            React.createElement Record, key: record.id, record: record, handleEditRecord: @updateRecord, handleDeleteRecord: @destroyRecord
+            React.createElement Record, key: record.id, record: record, payer: @getPayer(record), handleEditRecord: @updateRecord, handleDeleteRecord: @destroyRecord
       React.createElement ReactPaginate, max: @state.total_pages, maxVisible: @state.total_pages, onChange: @reloadRecords
+  getPayer: (record) ->
+    for user in @props.users
+      return user if user.id == record.payer_id
+    return null
   createRecord: (record) ->
     @reloadRecords()
   updateRecord: (new_record, old_record) ->

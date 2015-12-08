@@ -6,6 +6,8 @@ en:
     date: Date
     delete: Delete
     edit: Edit
+    payed_by: Payed by
+    payed_for: Payed for
     update: Update
     title: Title
     amount_box:
@@ -25,8 +27,6 @@ en:
       title: Personal Balance
     record_form:
       create: Save
-      payed_by: Payed by
-      payed_for: Payed for
   header:
     sign_out: Sign Out
     welcome: Welcome %{name}
