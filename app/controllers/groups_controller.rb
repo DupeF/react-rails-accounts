@@ -13,8 +13,17 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     authorize @group
-    @records = @group.records.order(date: :desc, created_at: :desc).page(params[:page]).per(10)
-    @total_pages = @records.total_pages
+    @users = @group.users.select(:id, :email)
+    raw_records = @group.records.includes(:payer, :users).order(date: :desc, created_at: :desc).page(params[:page]).per(10)
+    @records = raw_records.map do |record|
+      record.attributes.merge(
+          {
+              'payer' => record.payer.slice(:id, :email),
+              'users' => record.users.map { |u| u.slice(:id, :email)}
+          }
+      )
+    end
+    @total_pages = raw_records.total_pages
     render json: { records: @records, total_pages: @total_pages } if request.xhr?
   end
 

@@ -4,11 +4,11 @@
     records: @props.records
     total_pages: @props.total_pages
   getDefaultProps: ->
-    balance: {}
+    group: {}
     page: 1
     records: []
-    total_pages: 1
     users: []
+    total_pages: 1
   render: ->
     React.DOM.div
       className: 'records'
@@ -23,7 +23,7 @@
           role: 'button'
           'data-toggle': 'modal'
           I18n.t('components.group.new_record')
-      React.createElement RecordModal, group_id: @props.group.id, users: @props.users,handleNewRecord: @createRecord
+      React.createElement RecordModal, type: 'new', dom_id: 'newRecordModal', group_id: @props.group.id, users: @props.users, handleNewRecord: @createRecord
       React.DOM.hr null
       React.DOM.table
         className: 'table table-bordered'
@@ -36,22 +36,23 @@
               className: 'col-md-3'
               I18n.t('components.title')
             React.DOM.th
-              className: 'col-md-2'
+              className: 'col-md-1'
               I18n.t('components.amount')
             React.DOM.th
               className: 'col-md-2'
               I18n.t('components.payed_by')
             React.DOM.th
-              className: 'col-md-3'
+              className: 'col-md-2'
+              I18n.t('components.payed_for')
+            React.DOM.th
+              className: 'col-md-2'
               I18n.t('components.actions')
         React.DOM.tbody null,
           for record in @state.records
-            React.createElement Record, key: record.id, record: record, payer: @getPayer(record), handleEditRecord: @updateRecord, handleDeleteRecord: @destroyRecord
+            React.createElement Record, key: record.id, record: record, handleEditRecord: @updateRecord, handleDeleteRecord: @destroyRecord
+      for record in @state.records
+        React.createElement RecordModal, key: record.id, type: 'edit', dom_id: "editRecordModal#{record.id}", record: record, users: @props.users, handleEditRecord: @updateRecord
       React.createElement ReactPaginate, max: @state.total_pages, maxVisible: @state.total_pages, onChange: @reloadRecords
-  getPayer: (record) ->
-    for user in @props.users
-      return user if user.id == record.payer_id
-    return null
   createRecord: (record) ->
     @reloadRecords()
   updateRecord: (new_record, old_record) ->
