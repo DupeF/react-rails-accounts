@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker
+//= require bootstrap-select
 //= require react
 //= require react_ujs
 //= require i18n

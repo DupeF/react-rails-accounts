@@ -35,8 +35,7 @@
           React.DOM.span
             className: 'input-group-btn'
             React.DOM.button
-              id: 'plus-minus-btn'
-              className: 'btn btn-default'
+              className: 'btn btn-default plus-minus-btn'
               type: 'button'
               onClick: @toggleMinus
               React.DOM.span

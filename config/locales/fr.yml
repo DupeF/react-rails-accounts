@@ -6,6 +6,8 @@ fr:
     date: Date
     delete: Supprimer
     edit: Editer
+    payed_by: Payé par
+    payed_for: Payé pour
     update: Enregistrer
     title: Titre
     amount_box:
@@ -19,8 +21,8 @@ fr:
         title: Ajouter un Bilan
         name: Nom
         save: Valider
-    groups:
-      title: Groupes
+    group:
+      new_record: Nouvelle Dépense
     personal_balance:
       title: Bilan Personnel
     record_form:

@@ -6,6 +6,8 @@ en:
     date: Date
     delete: Delete
     edit: Edit
+    payed_by: Payed by
+    payed_for: Payed for
     update: Update
     title: Title
     amount_box:
@@ -19,8 +21,8 @@ en:
         title: Add a Balance
         name: Name
         save: Save
-    groups:
-      title: Groups
+    group:
+      new_record: New Expense
     personal_balance:
       title: Personal Balance
     record_form:
