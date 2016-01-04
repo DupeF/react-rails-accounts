@@ -8,6 +8,7 @@ source 'https://rubygems.org' do
   gem 'coffee-rails', '~> 4.1.0'
   gem 'bootstrap-sass', '~> 3.3.5.1'
   gem 'react-rails', '~> 1.0.0'
+  gem 'font-awesome-rails', '~> 4.5'
 
   gem 'jquery-rails'
   gem 'turbolinks'
@@ -31,6 +32,7 @@ source 'https://rubygems.org' do
     gem 'web-console', '~> 2.0'
     gem 'better_errors', '~> 2.1.1'
     gem 'spring'
+    gem 'quiet_assets', '~> 1.1'
 
     gem 'rspec-rails', '~> 3.3', '>= 3.3.3'
     gem 'capybara', '~> 2.5'
@@ -46,4 +48,5 @@ end
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-react-paginate'
+  gem 'rails-assets-bootstrap-select'
 end

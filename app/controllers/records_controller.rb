@@ -30,7 +30,7 @@ class RecordsController < ApplicationController
   private
 
   def record_params
-    params.require(:record).permit(:title, :amount, :date, :group_id)
+    params.require(:record).permit(:title, :amount, :date, :group_id, :payer_id, user_ids: [])
   end
 
 end
