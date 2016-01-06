@@ -38,6 +38,8 @@ source 'https://rubygems.org' do
     gem 'capybara', '~> 2.5'
     gem 'factory_girl_rails', '~> 4.5'
     gem 'poltergeist', '~> 1.7'
+
+    gem 'jasmine-rails', '~> 0.12.2'
   end
 
   group :production do
