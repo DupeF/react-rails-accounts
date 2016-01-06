@@ -4,4 +4,6 @@ class Record < ActiveRecord::Base
 
   belongs_to :payer, class_name: User.name
   belongs_to :group
+
+  validates_presence_of :title, :amount, :date, :group, :payer
 end
