@@ -5,7 +5,6 @@ source 'https://rubygems.org' do
 
   gem 'sass-rails', '~> 5.0'
   gem 'uglifier', '>= 1.3.0'
-  gem 'coffee-rails', '~> 4.1.0'
   gem 'bootstrap-sass', '~> 3.3.5.1'
   gem 'react-rails', '~> 1.0.0'
   gem 'font-awesome-rails', '~> 4.5'
@@ -33,6 +32,13 @@ source 'https://rubygems.org' do
     gem 'better_errors', '~> 2.1.1'
     gem 'spring'
     gem 'quiet_assets', '~> 1.1'
+
+    gem 'rspec-rails', '~> 3.3', '>= 3.3.3'
+    gem 'capybara', '~> 2.5'
+    gem 'factory_girl_rails', '~> 4.5'
+    gem 'poltergeist', '~> 1.7'
+
+    gem 'jasmine-rails', '~> 0.12.2'
   end
 
   group :production do
